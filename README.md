@@ -1,4 +1,4 @@
-# GES - Calcul de l'empreinte carbone
+# GES - Calcul des émissions de gaz à effet de serre
 
 ## Description
 Cette application permet de calculer les émissions de gaz à effet de serre (GES) de vos trajets en train, en voiture ou en avion. 
