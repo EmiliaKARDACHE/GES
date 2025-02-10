@@ -142,7 +142,7 @@ for i, row in enumerate(st.session_state.rows):
         if row["mode_transport"] == "Route":
             row["ville_depart"] = st.selectbox('Ville de départ', villes, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
-            row["ville_depart"] = st.selectbox('Gare de départ', gares_ter, key=f"selectbox_depart{i}")
+            row["ville_depart"] = st.selectbox('Gare de départ', villes, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TGV':
             row["ville_depart"] = st.selectbox('Gare de départ', gares_tgv, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'Intercités':
@@ -154,7 +154,7 @@ for i, row in enumerate(st.session_state.rows):
         if row["mode_transport"] == "Route":
             row["ville_arrivee"] = st.selectbox("Ville d'arrivée", villes, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
-            row["ville_arrivee"] = st.selectbox("Gare d'arrivée", gares_ter, key=f"selectbox_arrivee{i}")
+            row["ville_arrivee"] = st.selectbox("Gare d'arrivée", villes, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TGV':
             row["ville_arrivee"] = st.selectbox("Gare d'arrivée", gares_tgv, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'Intercités':
