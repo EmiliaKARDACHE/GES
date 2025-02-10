@@ -132,7 +132,7 @@ for i, row in enumerate(st.session_state.rows):
             )
         elif row["mode_transport"] == "Avion":
             row["type_vehicule"] = st.selectbox(
-                "Mange tes morts pour voir", 
+                "Type avion", 
                 [],
                 key=f"type_vehicule_avion_{i}"
             )
@@ -140,7 +140,7 @@ for i, row in enumerate(st.session_state.rows):
         if row["mode_transport"] == "Route":
             row["ville_depart"] = st.selectbox('Ville de départ', villes, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
-            row["ville_depart"] = st.selectbox('Gare de départ', gares_ter, key=f"selectbox_depart{i}")
+            row["ville_depart"] = st.selectbox('Gare de départ', villes, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TGV':
             row["ville_depart"] = st.selectbox('Gare de départ', gares_tgv, key=f"selectbox_depart{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'Intercités':
@@ -152,7 +152,7 @@ for i, row in enumerate(st.session_state.rows):
         if row["mode_transport"] == "Route":
             row["ville_arrivee"] = st.selectbox("Ville d'arrivée", villes, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
-            row["ville_arrivee"] = st.selectbox("Gare d'arrivée", gares_ter, key=f"selectbox_arrivee{i}")
+            row["ville_arrivee"] = st.selectbox("Gare d'arrivée", villes, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TGV':
             row["ville_arrivee"] = st.selectbox("Gare d'arrivée", gares_tgv, key=f"selectbox_arrivee{i}")
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'Intercités':
@@ -232,7 +232,16 @@ for row in st.session_state.rows:
                 messages_erreur.append(f"Il n'y a pas de trajet en Intercités enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
 
         elif row["mode_transport"] == "Avion":
-            pass
+            filtre_avion = trains_avions[
+                ((trains_avions['Origine'] == row['ville_depart']) & (trains_avions['Destination'] == row['ville_arrivee'])) |
+                ((trains_avions['Origine'] == row['ville_arrivee']) & (trains_avions['Destination'] == row['ville_depart']))
+            ]
+
+            if not filtre_avion.empty:
+                empreinte_avion = filtre_avion["Avion - Empreinte carbone (kgCO2e)"].iloc[0]
+                total_empreinte += empreinte_avion
+            else:
+                messages_erreur.append(f"Il n'y a pas de trajet en avion enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
 
 st.markdown(f"<h3 class='title-text' style='text-align: center; font-size:45px'>{total_empreinte} kg de CO2</h3>", unsafe_allow_html=True)
 
@@ -250,5 +259,5 @@ def navigation():
         afficher_page_etudes()
 
 # Appel de la fonction de navigation
-if __name__ == "__main__":
+if __name__ == "__main__":  
     navigation()  
