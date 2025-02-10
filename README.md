@@ -17,10 +17,10 @@ Bienvenue dans le projet **Calculer mon empreinte GES** ! Ce projet permet de ca
 
 Si tu souhaites tester ce projet localement, voici les étapes à suivre :
 
-1. Clone ce dépôt :
+1. Clone ce dépôt (https) :
 
    ```bash
-   git clone https://github.com/tonutilisateur/CO2-Travel-Emissions-Calculator.git
+   git clone https://github.com/EmiliaKARDACHE/GES.git
 
 2. Installe les dépendances nécessaires avec pip :
 
