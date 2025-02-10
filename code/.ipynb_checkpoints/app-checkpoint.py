@@ -256,9 +256,9 @@ def navigation():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Sélectionnez une page", ["Formulaire de Transport", "Nos Études"])
 
-    if page == "Mes Études":
+    if page == "Nos Études":
         afficher_page_etudes()
-
+ 
 # Appel de la fonction de navigation
 if __name__ == "__main__":  
     navigation()  
