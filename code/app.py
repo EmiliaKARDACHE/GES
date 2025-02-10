@@ -182,7 +182,7 @@ for row in st.session_state.rows:
             filtre_tgv = filtre_tgv[filtre_tgv['Transporteur'] == 'TGV']
 
             if not filtre_tgv.empty:
-                empreinte_tgv = filtre_tgv["Train - Empreinte carbone (kgCO2e)"].iloc[0]
+                empreinte_tgv = round(filtre_tgv["Train - Empreinte carbone (kgCO2e)"].iloc[0],3)
                 total_empreinte += empreinte_tgv
             else:
                 messages_erreur.append(f"Il n'y a pas de trajet en TGV enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
@@ -195,7 +195,7 @@ for row in st.session_state.rows:
             filtre_intercites = filtre_intercites[filtre_intercites['Transporteur'] == 'Intercités']
 
             if not filtre_intercites.empty:
-                empreinte_intercites = filtre_intercites["Train - Empreinte carbone (kgCO2e)"].iloc[0]
+                empreinte_intercites = round(filtre_intercites["Train - Empreinte carbone (kgCO2e)"].iloc[0],3)
                 total_empreinte += empreinte_intercites
             else:
                 messages_erreur.append(f"Il n'y a pas de trajet en Intercités enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
@@ -207,7 +207,7 @@ for row in st.session_state.rows:
             ]
 
             if not filtre_avion.empty:
-                empreinte_avion = filtre_avion["Avion - Empreinte carbone (kgCO2e)"].iloc[0]
+                empreinte_avion = round(filtre_avion["Avion - Empreinte carbone (kgCO2e)"].iloc[0],3)
                 total_empreinte += empreinte_avion
             else:
                 messages_erreur.append(f"Il n'y a pas de trajet en avion enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
