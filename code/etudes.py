@@ -8,7 +8,7 @@ def afficher_page_etudes():
     
     images = [
         
-        ("Alex .....",  "..\images\image1.png"),
+        ("Le graphique ci-dessous montre les émissions de gaz à effet de serre par kilomètre et par personne selon le mode de transport. Ce qui ressort                     clairement, c'est que le train génère beaucoup moins d'émissions par rapport à des modes de transport plus courants comme la voiture ou le bus.",                "..\images\image1.png"),
         
         ("ETUDE ERIC ......", "..\images\image2.png"),
         
