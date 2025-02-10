@@ -11,7 +11,7 @@ Si vous souhaitez calculer votre empreinte GES, cliquez sur le lien ci-dessous p
 ## Installation et exécution 
 Si vous souhaitez utiliser ou modifier cette application en local, voici les étapes :
 ### Cloner le projet : 
-git clone https://github.com/EmiliaKARDACHE/GES.git
+git clone (https://github.com/EmiliaKARDACHE/GES.git)
 cd GES
 ### Installer les dépendances
 pip install -r requirements.txt
