@@ -8,7 +8,7 @@ def afficher_page_etudes():
     
     images = [
         
-        ("Alex .....", os.path.join("..", "images", "image1.png")),
+        ("Alex .....",  "..\images\image1.png"),
         
         ("ETUDE ERIC ......", "..\images\image2.png"),
         
