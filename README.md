@@ -13,7 +13,7 @@ Si vous souhaitez utiliser ou modifier cette application en local, voici les ét
 ### Cloner le projet : 
 git clone (https://github.com/EmiliaKARDACHE/GES.git)
 cd GES
-### Installer les dépendances
+### Installer les dépendances :
 pip install -r requirements.txt
-### Lancer l'application
+### Lancer l'application :
 streamlit run app.py
