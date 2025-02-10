@@ -198,7 +198,7 @@ for row in st.session_state.rows:
                 total_empreinte += empreinte_route
 
             elif row["type_vehicule"] == "Voiture":
-                coeff_voiture = 0.938192  
+                coeff_voiture = 0.938192/2.2  
                 empreinte_route = distance * coeff_voiture
                 total_empreinte += empreinte_route
 
