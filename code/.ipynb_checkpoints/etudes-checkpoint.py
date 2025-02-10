@@ -4,13 +4,13 @@ import os
 
 def afficher_page_etudes():
     st.title("Nos Études 📚")  
-    st.write("Bienvenue sur la page dédiée à nos études. Voici quelques informations utiles.")
+   
     
     images = [
         
         ("Le graphique ci-dessous montre les émissions de gaz à effet de serre par kilomètre et par personne selon le mode de transport. Ce qui ressort                     clairement, c'est que le train génère beaucoup moins d'émissions par rapport à des modes de transport plus courants comme la voiture ou le bus.",                "..\images\image1.png"),
         
-        ("ETUDE ERIC ......", "..\images\image2.png"),
+        ("Le graphique montre que les 2RM émettent le plus de CO, tandis que les autocars, bus et poids lourds ont les émissions de NOx les plus élevées,                    probablement en raison de l’usage du diesel. Les voitures et VUL ont des émissions plus modérées, mais leur grand nombre contribue fortement à la                pollution globale. Les bus et autocars, bien que plus polluants par véhicule, restent plus efficaces par passager transporté.",                                  "..\images\image2.png"),
         
         ("Cette carte montre les émissions de GES des trajets domicile-travail par département en France. On remarque que certains départements comme l'Eure-et-            Loir (28), l'Eure (27), et l'Oise (60) ont des émissions plus élevées, indiquées par des couleurs foncées. À l'inverse, l'Île-de-France, notamment               Paris et ses environs, affiche des niveaux d'émissions plus faibles, probablement grâce à une meilleure utilisation des transports en commun. Cette              carte met  en évidence les différences d'empreinte carbone selon les régions, influencées par la mobilité et l'accessibilité.",                                  "..\images\image3.png"), 
         
