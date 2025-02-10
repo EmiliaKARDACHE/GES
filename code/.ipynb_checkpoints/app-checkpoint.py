@@ -254,7 +254,7 @@ if messages_erreur:
 # Initialiser la navigation
 def navigation():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Sélectionnez une page", ["Formulaire de Transport", "Mes Études"])
+    page = st.sidebar.radio("Sélectionnez une page", ["Formulaire de Transport", "Nos Études"])
 
     if page == "Mes Études":
         afficher_page_etudes()
