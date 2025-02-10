@@ -49,8 +49,6 @@ emission_tgv = ter_trains['Train'].mean()
 intercités_trains = trains[(trains['Transporteur'] == 'Intercités')]
 emission_intercite = ter_trains['Train'].mean()
 
-
-
 st.title("Formulaire de Transport")
 st.text("Merci de mettre chaque étape du trajet en cas de correspondance.")
 st.markdown("""
@@ -170,7 +168,40 @@ messages_erreur = []
 for row in st.session_state.rows:
     if row["ville_depart"] and row["ville_arrivee"]:
         if row["mode_transport"] == "Route":
-            pass
+            # Calculate distance between the two cities
+            distance = calculer_distance(row["ville_depart"], row["ville_arrivee"])
+
+            # Apply the appropriate coefficient based on the vehicle type
+            if row["type_vehicule"] == "2 Roues Motrices":
+                coeff_2rm =  1.594333 
+                empreinte_route = distance * coeff_2rm
+                total_empreinte += empreinte_route
+
+            elif row["type_vehicule"] == "Autocar":
+                coeff_autocar = 0.803152/30  
+                empreinte_route = distance * coeff_autocar
+                total_empreinte += empreinte_route
+
+            elif row["type_vehicule"] == "Bus":
+                coeff_bus = 1.063000/30  
+                empreinte_route = distance * coeff_bus
+                total_empreinte += empreinte_route
+
+            elif row["type_vehicule"] == "Poids lourd":
+                coeff_pl = 0.523545  
+                empreinte_route = distance * coeff_pl
+                total_empreinte += empreinte_route
+
+            elif row["type_vehicule"] == "Véhicule utilitaire":
+                coeff_vul = 0.252545
+                empreinte_route = distance * coeff_vul
+                total_empreinte += empreinte_route
+
+            elif row["type_vehicule"] == "Voiture":
+                coeff_voiture = 0.938192  
+                empreinte_route = distance * coeff_voiture
+                total_empreinte += empreinte_route
+
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
             empreinte_ter = calculer_distance(row['ville_depart'], row['ville_arrivee']) * trains[trains['Transporteur'] == row["type_vehicule"]]['Train'].mean()
             total_empreinte += empreinte_ter
