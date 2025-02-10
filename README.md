@@ -1,6 +1,6 @@
-# 🌍 CO2 Travel Emissions Calculator 🌍
+# 🌍 Calculer mon empreinte GES 🌍
 
-Bienvenue dans le projet **CO2 Travel Emissions Calculator** ! Ce projet permet de calculer les émissions de CO2 générées par un trajet en fonction de plusieurs critères : mode de transport, type de véhicule, et les villes de départ et d'arrivée. 🚗✈️🚉
+Bienvenue dans le projet **Calculer mon empreinte GES** ! Ce projet permet de calculer les émissions de CO2 générées par un trajet en fonction de plusieurs critères : mode de transport, type de véhicule, et les villes de départ et d'arrivée. 🚗✈️🚉
 
 ### 🚀 Technologies utilisées
 ![Python](https://img.shields.io/badge/Python-3.9-blue) 
