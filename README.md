@@ -30,11 +30,11 @@ Si tu souhaites tester ce projet localement, voici les étapes à suivre :
   Où requirements.txt contient :
     
     ipython==8.30.0
-   numpy==2.1.3
-   pandas==2.2.3
-   plotly==5.24.1
-   streamlit==1.41.1
-   geopy==2.4.1
+    numpy==2.1.3
+    pandas==2.2.3
+    plotly==5.24.1
+    streamlit==1.41.1
+    geopy==2.4.1
 
 
 
