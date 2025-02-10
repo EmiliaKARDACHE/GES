@@ -49,6 +49,8 @@ emission_tgv = ter_trains['Train'].mean()
 intercités_trains = trains[(trains['Transporteur'] == 'Intercités')]
 emission_intercite = ter_trains['Train'].mean()
 
+
+
 st.title("Formulaire de Transport")
 st.text("Merci de mettre chaque étape du trajet en cas de correspondance.")
 st.markdown("""
@@ -168,40 +170,7 @@ messages_erreur = []
 for row in st.session_state.rows:
     if row["ville_depart"] and row["ville_arrivee"]:
         if row["mode_transport"] == "Route":
-            # Calculate distance between the two cities
-            distance = calculer_distance(row["ville_depart"], row["ville_arrivee"])
-
-            # Apply the appropriate coefficient based on the vehicle type
-            if row["type_vehicule"] == "2 Roues Motrices":
-                coeff_2rm =  1.594333 
-                empreinte_route = distance * coeff_2rm
-                total_empreinte += empreinte_route
-
-            elif row["type_vehicule"] == "Autocar":
-                coeff_autocar = 0.803152/30  
-                empreinte_route = distance * coeff_autocar
-                total_empreinte += empreinte_route
-
-            elif row["type_vehicule"] == "Bus":
-                coeff_bus = 1.063000/30  
-                empreinte_route = distance * coeff_bus
-                total_empreinte += empreinte_route
-
-            elif row["type_vehicule"] == "Poids lourd":
-                coeff_pl = 0.523545  
-                empreinte_route = distance * coeff_pl
-                total_empreinte += empreinte_route
-
-            elif row["type_vehicule"] == "Véhicule utilitaire":
-                coeff_vul = 0.252545
-                empreinte_route = distance * coeff_vul
-                total_empreinte += empreinte_route
-
-            elif row["type_vehicule"] == "Voiture":
-                coeff_voiture = 0.938192/2.2  
-                empreinte_route = distance * coeff_voiture
-                total_empreinte += empreinte_route
-
+            pass
         elif row["mode_transport"] == "Train" and row["type_vehicule"] == 'TER':
             empreinte_ter = calculer_distance(row['ville_depart'], row['ville_arrivee']) * trains[trains['Transporteur'] == row["type_vehicule"]]['Train'].mean()
             total_empreinte += empreinte_ter
@@ -243,7 +212,7 @@ for row in st.session_state.rows:
             else:
                 messages_erreur.append(f"Il n'y a pas de trajet en avion enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
 
-st.markdown(f"<h3 class='title-text' style='text-align: center; font-size:45px'>{round(total_empreinte), 3} kg de CO2</h3>", unsafe_allow_html=True)
+st.markdown(f"<h3 class='title-text' style='text-align: center; font-size:45px'>{round(total_empreinte, 3)} kg de CO2</h3>", unsafe_allow_html=True)
 
 if messages_erreur:
     st.markdown("<h3 class='title-text' style='text-align: center; color: red;'>Messages d'erreur</h3>", unsafe_allow_html=True)

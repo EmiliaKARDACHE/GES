@@ -212,7 +212,7 @@ for row in st.session_state.rows:
             else:
                 messages_erreur.append(f"Il n'y a pas de trajet en avion enregistré pour l'itinéraire {row['ville_depart']} -> {row['ville_arrivee']}.")
 
-st.markdown(f"<h3 class='title-text' style='text-align: center; font-size:45px'>{round(total_empreinte), 3} kg de CO2</h3>", unsafe_allow_html=True)
+st.markdown(f"<h3 class='title-text' style='text-align: center; font-size:45px'>{round(total_empreinte, 3)} kg de CO2</h3>", unsafe_allow_html=True)
 
 if messages_erreur:
     st.markdown("<h3 class='title-text' style='text-align: center; color: red;'>Messages d'erreur</h3>", unsafe_allow_html=True)
